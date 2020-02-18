@@ -44,9 +44,10 @@ window.addEventListener('load', () => {
     prompt('Are you planning a trip soon? (Yes, No, Maybe)');
 });
 
-// 7. 'resize' creates an alert box whenever the window is resized
+// 7. 'resize' creates an alert box whenever the window is resized to give the new and updated window height and width
 window.addEventListener('resize', () => {
-    alert(`The dimensions of your window have changed.`);
+    alert(`The dimensions of your window have changed to:\nHeight: ${window.innerHeight}px\nWidth: ${window.innerWidth}px`);
+
 });
 
 // 8. 'blur' blurs the buttons at the bottom of the page
