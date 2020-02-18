@@ -13,7 +13,7 @@ navBar.addEventListener('mouseover', ev => {
     }, 500);
 }, false);
 
-// 2. 'click' changes the font color when a nav-bar link is clicked X
+// 2. 'click' changes the font color when a nav-bar link is clicked
 navBar.addEventListener('click', ev => {
     ev.target.style.color = '#00FFFF';
 
@@ -47,7 +47,7 @@ window.addEventListener('load', () => {
     prompt('Are you planning a trip soon? (Yes, No, Maybe)');
 });
 
-// 7. 'resize' creates an alert box whenever the window is resized X
+// 7. 'resize' creates an alert box whenever the window is resized
 window.addEventListener('resize', () => {
     alert(`The dimensions of your window have changed.`);
 });
@@ -56,7 +56,7 @@ window.addEventListener('resize', () => {
 const buttons = doc.querySelectorAll('.btn');
 buttons.forEach(btns => {
     btns.addEventListener('click', () => {
-        btns.style.filter = 'blur(50px)';
+        btns.style.filter = 'blur(5px)';
     });
     btns.addEventListener('mouseleave', () => {
         btns.style.filter = '';
@@ -64,14 +64,33 @@ buttons.forEach(btns => {
 });
 
 const headerTag = doc.querySelector('header');
-// 9. 'keydown' sets an new font color and background color for the header section when a button is pressed X
+// 9. 'keydown' sets an new font color and background color for the header section when a button is pressed
 const downKey = doc.addEventListener('keydown', () => {
     headerTag.style.color = '#FF7F50';
     headerTag.style.backgroundColor = '#00FFFF';
 });
 
-// 10. 'keyup' sets an new font color and background color for the header section when a button is released X
+// 10. 'keyup' sets an new font color and background color for the header section when a button is released
 const upKey = doc.addEventListener('keyup', () => {
     headerTag.style.color = '';
     headerTag.style.backgroundColor = '';
+});
+
+// Stop propagation using to nested elements within the document
+const introDiv = doc.querySelector('.intro');
+introDiv.addEventListener('click', () => {
+    introDiv.style.border = '2px solid blue';
+});
+const imgDiv = doc.querySelector('.intro img');
+imgDiv.addEventListener('click', (event) => {
+    imgDiv.style.border = '3px solid firebrick';
+    event.stopPropagation();
+    console.log(`Event propagation stopped.`)
+});
+
+// Uses preventDefault for stopping the nav-bar links from refreshing the page
+const navLinks = doc.querySelector('.nav-link');
+navLinks.addEventListener('click', () => {
+    navLinks.preventDefault();
+    console.log(`Nav-bar links are prevented from refreshing the page.`)
 });
