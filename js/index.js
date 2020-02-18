@@ -56,7 +56,7 @@ window.addEventListener('resize', () => {
 const buttons = doc.querySelectorAll('.btn');
 buttons.forEach(btns => {
     btns.addEventListener('click', () => {
-        btns.style.filter = 'blur(5px)';
+        btns.style.filter = 'blur(3px)';
     });
     btns.addEventListener('mouseleave', () => {
         btns.style.filter = '';
