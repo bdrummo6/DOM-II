@@ -19,7 +19,7 @@ navBar.addEventListener('click', ev => {
 
     setTimeout(function() {
         ev.target.style.color = '';
-    }, 1500);
+    }, 1250);
 }, false);
 
 const busImg = doc.querySelector('.intro img');
@@ -44,5 +44,34 @@ otherImgs.forEach(imgs => {
 
 // 6. 'load' creates an alert box when the page finishes loading
 window.addEventListener('load', () => {
-    prompt('Ary you planning a trip soon? (Yes, No, Maybe)');
+    prompt('Are you planning a trip soon? (Yes, No, Maybe)');
+});
+
+// 7. 'resize' creates an alert box whenever the window is resized X
+window.addEventListener('resize', () => {
+    alert(`The dimensions of your window have changed.`);
+});
+
+// 8. 'blur' blurs the buttons at the bottom of the page
+const buttons = doc.querySelectorAll('.btn');
+buttons.forEach(btns => {
+    btns.addEventListener('click', () => {
+        btns.style.filter = 'blur(50px)';
+    });
+    btns.addEventListener('mouseleave', () => {
+        btns.style.filter = '';
+    });
+});
+
+const headerTag = doc.querySelector('header');
+// 9. 'keydown' sets an new font color and background color for the header section when a button is pressed X
+const downKey = doc.addEventListener('keydown', () => {
+    headerTag.style.color = '#FF7F50';
+    headerTag.style.backgroundColor = '#00FFFF';
+});
+
+// 10. 'keyup' sets an new font color and background color for the header section when a button is released X
+const upKey = doc.addEventListener('keyup', () => {
+    headerTag.style.color = '';
+    headerTag.style.backgroundColor = '';
 });
