@@ -7,7 +7,7 @@ navBar.addEventListener('mouseover', ev => {
 
     setTimeout(function() {
         ev.target.style.color = '';
-    }, 500);
+    }, 750);
 }, false);
 
 // 2. 'click' changes the font color when a nav-bar link is clicked
